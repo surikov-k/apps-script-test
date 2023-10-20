@@ -257,7 +257,7 @@ class BusinessProposalBuilder {
   }
 
   openModal() {
-    const service = HtmlService.createTemplateFromFile("src/frontend/dialog");
+    const service = HtmlService.createTemplateFromFile("src/frontend/save-files-modal/index");
     const htmlOutput = service.evaluate()
 
     SpreadsheetApp.getUi().showModalDialog(htmlOutput, 'Сохранить КП');

@@ -132,5 +132,9 @@ async function mergeAllPDFs(blobs, fileName) {
   return Utilities.newBlob(pdfDoc).setName(fileName)
 }
 
+function include(filename) {
+  return HtmlService.createHtmlOutputFromFile(filename)
+    .getContent();
+}
 
 
