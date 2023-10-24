@@ -67,17 +67,37 @@
 
   document.getElementById('device').addEventListener('click', function (evt) {
     document.getElementById('info').innerText = '⏳ Генерация документов...'
-    google.script.run.withSuccessHandler(onSuccessToDevice)
-      .saveToDevice();
+
+    runServerFunction('saveToDevice')
+    .then(onSuccessToDevice)
+    .catch(error => alert(error));
   });
 
-  document.getElementById('drive').addEventListener('click', function (evt) {
+  document.getElementById('drive').addEventListener('click', async function (evt) {
     document.getElementById('info').innerText = '⏳ Генерация документов...'
-    google.script.run.withSuccessHandler(onSuccessToDrive)
-      .saveToDrive();
+
+    try {
+      const data = await runServerFunction('saveToDrive');
+      onSuccessToDrive(data);
+    } catch (error) {
+      alert.error;
+    }
+
   });
 
   document.getElementById('close').addEventListener('click', function (evt) {
     google.script.host.close();
   });
+
+  function runServerFunction(fn) {
+    return new Promise((resolve, reject) => {
+      google.script.run
+        .withSuccessHandler(data => {
+            resolve(data);
+          })
+        .withFailureHandler(error => {
+          reject(error);
+        })[fn]();
+    });
+  }
 </script>

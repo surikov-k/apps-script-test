@@ -2,40 +2,37 @@
 <html lang="en">
 
 <head>
-    <base target="_top">
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible"
-          content="ie=edge">
-    <title>Modal</title>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modal</title>
+  <?!= include('src/frontend/save-files-modal/styles'); ?>
 
-    <?!= include('src/frontend/save-files-modal/styles'); ?>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
     <div class="row">
-        <button id='drive'
+      <button id='drive'
                 class="button"
                 type="button">Скачать на Гугл диск
         </button>
-        <button id='device'
+      <button id='device'
                 class="button"
                 type="button">Скачать на устройство
         </button>
     </div>
-    <p id="info"
-       class=""></p>
+    <p id="info" class=""></p>
     <div class="row">
-        <button id='close'
+      <button id='close'
                 class="button hidden"
                 type="button">Закрыть
         </button>
     </div>
-</div>
-
-<?!= include('src/frontend/save-files-modal/script'); ?>
+  </div>
+  <?!= include('src/frontend/save-files-modal/script'); ?>
 </body>
 
 </html>
